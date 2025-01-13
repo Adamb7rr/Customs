@@ -8,31 +8,39 @@ body {
 }
 .container {
     max-width: 600px;
-    background-color: #FFF;
+    background: #FFF;
     width: 400px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
+    border-radius: 45px;
+    background: linear-gradient(135deg, #5fa8d3, #0466c8);
+    
 }
 .head {
-    background: #3a86ff;
+    background: #023e7d;
+    /* background: linear-gradient(135deg, #023e7d, #0466c8); */
     width: 100%;
     height: 20%;
     display: flex;
     justify-content: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
     margin-bottom: 30px;
+    
 }
 .head img {
     width: 50%;
     border-radius: 50%;
     position: relative;
     top: 25px;
-    border: 5px solid #3a86ff;
+    outline: 5px solid #023e7d ;
+    border: 3px solid #FFF;
+}
+.head img:hover {
+    transform: scale(1.1);
 }
 
 .container .details {
@@ -40,8 +48,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #0d1b2a;
     margin-bottom: 15px;
+    color: #FFF;
 }
 .container .details .name {
     font-weight: 600;
@@ -60,6 +68,10 @@ body {
     margin: 10px;
     width: 20px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+.container .social .fa:hover {
+    opacity: 0.5;
 }
 .container .social .fa-facebook {
     background: #3B5998;
@@ -87,6 +99,10 @@ body {
     font-size: 20px;
     cursor: pointer;
     color: #FFF;
+    transition: all 0.3s ease;
+}
+.container .button button:hover {
+    opacity: 0.8;
 }
 .container .button .first {
     background: #3a86ff;
@@ -99,6 +115,7 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-left: -20px;
 }
 .container .icon img {
     width: 20px;
