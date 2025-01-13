@@ -72,3 +72,24 @@ body {
 .container .social .fa-linkedin {
     background: #007bb5;
 }
+
+.container .button {
+    margin: 20px 0;
+
+}
+.container .button button {
+    outline: none;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    margin: 0 5px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #FFF;
+}
+.container .button .first {
+    background: #3a86ff;
+}
+.container .button .second {
+    background: #4361ee;
+}
