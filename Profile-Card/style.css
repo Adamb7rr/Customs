@@ -15,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 .head {
     background: #3a86ff;
@@ -92,4 +93,57 @@ body {
 }
 .container .button .second {
     background: #4361ee;
+}
+.container .icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.container .icon img {
+    width: 20px;
+    padding: 40px;
+}
+.container .icon .like::after {
+    content: "60k";
+    position: absolute;
+    color: #333;
+    top: 0px;
+    left: 0px;
+    top: 42px;
+    left: 70px
+}
+.container .icon .comment::after {
+    content: "20k";
+    position: absolute;
+    color: #333;
+    top: 42px;
+    left: 167px;
+}
+.container .icon::after {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    top: 38px;
+    left: 120px;
+    width: 2px;
+    height: 25px;
+    opacity: 0.3;
+}
+.container .icon::before {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    top: 38px;
+    right: 80px;
+    width: 2px;
+    height: 25px;
+    opacity: 0.3;
+}
+.container .icon .share::after {
+    content: "12k";
+    position: absolute;
+    color: #333;
+    top: 42px;
+    right: 5px;
 }
