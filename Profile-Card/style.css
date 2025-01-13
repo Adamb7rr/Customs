@@ -165,3 +165,11 @@ body {
     top: 42px;
     right: 5px;
 }
+
+@media (max-width: 350px) {
+    .container .button {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
