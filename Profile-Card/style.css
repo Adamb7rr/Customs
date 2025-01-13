@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     border-radius: 45px;
     background: linear-gradient(135deg, #5fa8d3, #0466c8);
-    
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5)
 }
 .head {
     background: #023e7d;
