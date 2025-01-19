@@ -15,6 +15,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #FFF;
 }
 section::before {
     content: '';
@@ -33,4 +34,41 @@ section::after {
     width: 240px;
     border-radius: 50%;
     transform: translate(150px, 100px);
+}
+
+.container {
+    width: 375px;
+    height: 225px;
+    position: relative;
+    z-index: 100;
+}
+.container .card{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0, 25, 45, rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.front-face .logo,
+.front-face header{
+    display: flex;
+    align-items: center;
+}
+.front-face header{
+    justify-content: space-between;
+}
+h5 {
+    font-size: 16px;
+    font-weight: 400;
+}
+.front-face .logo img{
+    width: 45px;
+    margin-right: 10px;
+}
+.front-face  img{
+    width: 45px;
 }
