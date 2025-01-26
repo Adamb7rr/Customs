@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    height: 100vh;
+    background: url(./coffee-hero-bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+
+}
+header .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.navbar .logo {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+.navbar .logo span {
+    color: #C06B3E;
+}
+header .navbar a {
+    color: #FFF;
+    text-decoration: none;
+    
+}
+header .navbar a:hover {
+    color: #C06B3E;
+}
+header .navbar .menu-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    font-size: 16px;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hero-section .contact {
+    color: #FFF;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.hero-section .contact h2 {
+    font-size: 3rem;
+    max-width: 700px;
+    font-weight: 600;
+    line-height: 70px;
+}
+.hero-section .contact p {
+    font-weight: 300;
+    max-width: 600px;
+    margin-top: 6px;
+}
+.hero-section .contact button {
+    margin-top: 33px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-weight: 500;
+}
+.hero-section .contact button:hover {
+    color: #FFF;
+    background: #C06B3E;
+}
