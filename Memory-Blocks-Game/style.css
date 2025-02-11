@@ -39,6 +39,9 @@ body{
     flex: 1 0 200px;
     margin: 0 10px 20px;
 }
+.memory-game-blocks .game-block.is-flipped{
+    transform: rotateY(180deg);
+}
 .memory-game-blocks .game-block .front{
     background-color: #333;
     line-height: 200px;
