@@ -91,3 +91,7 @@ body{
     backface-visibility: hidden;
     border: 5px solid #2396f3;
 }
+
+.no-clicking {
+    pointer-events: none;
+}

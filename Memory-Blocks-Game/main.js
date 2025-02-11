@@ -28,6 +28,10 @@ console.log(orderRange)
 
 blocks.forEach((block, index) => {
     block.style.order = orderRange[index]
+
+    block.addEventListener('click', () => {
+        flipBlock(block)
+    })
 })
 
 function shuffle (array) {
@@ -48,4 +52,24 @@ function shuffle (array) {
     }
 
     return array
+}
+
+function flipBlock (selectedBlock) {
+    selectedBlock.classList.add('is-flipped')
+
+    let allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'))
+
+    if (allFlippedBlocks.length === 2) {
+        console.log('two Flipped')
+
+        stopClicking()
+    }
+}
+
+function stopClicking () {
+    blocksContainer.classList.add('no-clicking')
+
+    setTimeout(() => {
+        blocksContainer.classList.remove('no-clicking')
+    }, duration)
 }
