@@ -22,4 +22,6 @@ let blocks = Array.from(blocksContainer.children)
 
 let orderRange = [...Array(blocks.length).keys()]
 
-console.log(orderRange)
+blocks.forEach((block, index) => {
+    block.style.order = index
+})
