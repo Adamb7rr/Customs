@@ -30,6 +30,7 @@ body{
 .info-container {
     width: 1080px;
     margin: 20px auto 0;
+    margin-right: 10px;
     background-color: #F6F6F6;
     padding: 20px;
     font-size: 24px;
@@ -51,6 +52,7 @@ body{
     width: 1100px;
     flex-wrap: wrap;
     margin: 20px auto;
+    margin-right: 0px;
 }
 .memory-game-blocks .game-block {
     height: 200px;
@@ -98,9 +100,36 @@ body{
     pointer-events: none;
 }
 
-.leaderboard{
+/* .leaderboard{
     width: 150px;
     position: fixed;
+} */
+
+.leaderboard-list ul{
+    list-style-type: style decimal ;
+}
+.leaderboard {
+    width: 300px;
+    position: fixed;
+    background-color: #f9f9f9;
+    border: 2px solid #2396f3;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.leaderboard h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2396f3;
+}
+#leaderboard-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+#leaderboard-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
 }
 
 .board .result{
@@ -109,11 +138,23 @@ body{
     align-items: center;
 
 }
-#leaderboard-list{
-    
+button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    background-color: #2396f3;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: 100%;
 }
-.board .result .name-board{
-    
+
+.clear{
+    background-color: #f44336;
+}
+.new{
+    background-color: #4caf50;
 }
 .board .result .tries-board{
     position: absolute;

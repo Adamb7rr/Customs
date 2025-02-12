@@ -3,7 +3,6 @@ document.querySelector('.control-buttons span').onclick = () => {
     // prompt to enter your name
     let yourName = prompt("Enter Your Name?")
 
-
     // display your name in game page
     if (yourName === '' || yourName === null) {
         document.querySelector('.name span').innerHTML = `Unknown`
@@ -14,7 +13,6 @@ document.querySelector('.control-buttons span').onclick = () => {
     // remove splach screen from page
     document.querySelector('.control-buttons').remove()
 }
-
 
 let duration = 1000
 
@@ -45,8 +43,6 @@ function checkMatchedBlocks (fBlock, sBlock) {
     let triesElement = document.querySelector('.tries span')
     let triesBoard = document.querySelector('.tries-board span')
 
-
-
     if (fBlock.dataset.player === sBlock.dataset.player) {
 
         win.play()
@@ -69,8 +65,6 @@ function checkMatchedBlocks (fBlock, sBlock) {
 
         })
 
-
-
     } else {
 
         lose.play()
@@ -84,7 +78,6 @@ function checkMatchedBlocks (fBlock, sBlock) {
 
     }
 }
-
 
 function shuffle (array) {
     let current = array.length,
@@ -138,10 +131,10 @@ function saveScore (name, tries) {
 function updateLeaderboard () {
     let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
     let leaderboardList = document.getElementById('leaderboard-list');
-    leaderboardList.innerHTML = '';
-    leaderboard.forEach(entry => {
+    leaderboardList.innerHTML = ''; // Clear the existing list items
+    leaderboard.forEach((entry, index) => {
         let listItem = document.createElement('li');
-        listItem.textContent = `${entry.name}: ${entry.tries} tries`;
+        listItem.textContent = `${index + 1}. ${entry.name}: ${entry.tries} tries`;
         leaderboardList.appendChild(listItem);
     });
 }
@@ -200,8 +193,6 @@ function startNewGame () {
 
     // Remove no-clicking class if present
     blocksContainer.classList.remove('no-clicking');
-
-
 }
 document.getElementById('refresh-page').addEventListener('click', startNewGame);
 gameFinish()
