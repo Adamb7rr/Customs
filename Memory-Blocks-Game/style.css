@@ -59,17 +59,17 @@ body{
 }
 .memory-game-blocks .game-block {
     height: 200px;
-    transition: transform .5s;
+    transition: transform .5s, width .5s, height .5s;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
     flex: 1 0 200px;
-    margin: 0 10px 20px;
+    margin: 10px;
 }
 .memory-game-blocks .game-block.is-flipped,
 .memory-game-blocks .game-block.has-match{
     transform: rotateY(180deg);
-    pointer-events: ;
+    pointer-events: none;
 }
 .memory-game-blocks .game-block .front{
     background-color: #333;
@@ -262,4 +262,33 @@ button {
     background-color: #2396f3;
     cursor: pointer;
     border-radius: 6px;
+}
+
+.game-level {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #2396f3;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-level h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2396f3;
+}
+
+.game-level button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    background-color: #2396f3;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 5px;
+    width: 100px;
 }

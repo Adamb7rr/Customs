@@ -240,5 +240,3 @@ function startNewGame () {
 }
 
 document.getElementById('refresh-page').addEventListener('click', startNewGame);
-
-gameFinish()
