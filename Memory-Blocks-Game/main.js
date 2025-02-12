@@ -152,7 +152,25 @@ function gameFinish () {
     saveScore(name, tries);
     updateLeaderboard();
 
-    alert('Game Over! Check the leaderboard.');
+    // Show the winning message in the pop-up
+    let winMessage = `Congratulations ${name}! You won the game with ${tries} tries.`;
+    document.getElementById('win-message').innerText = winMessage;
+
+    // Display the pop-up
+    let popup = document.getElementById('win-popup');
+    popup.style.display = 'block';
+
+    // Close the pop-up when the user clicks on the close button
+    document.getElementById('close-popup').onclick = function() {
+        popup.style.display = 'none';
+    };
+
+    // Close the pop-up when the user clicks anywhere outside of the pop-up
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    };
 }
 
 let resetBut = document.querySelector('.leaderboard button');
@@ -164,4 +182,26 @@ function reset () {
     localStorage.removeItem('leaderboard');
     updateLeaderboard();
 }
+function startNewGame () {
+    // Reset tries
+    document.querySelector('.tries span').innerHTML = '0';
+
+    // Reset blocks
+    blocks.forEach(block => {
+        block.classList.remove('is-flipped', 'has-match');
+        block.style.order = '';
+    });
+
+    // Shuffle blocks
+    shuffle(orderRange);
+    blocks.forEach((block, index) => {
+        block.style.order = orderRange[index];
+    });
+
+    // Remove no-clicking class if present
+    blocksContainer.classList.remove('no-clicking');
+
+
+}
+document.getElementById('refresh-page').addEventListener('click', startNewGame);
 gameFinish()
