@@ -151,5 +151,17 @@ function gameFinish () {
     let tries = parseInt(document.querySelector('.tries span').innerHTML);
     saveScore(name, tries);
     updateLeaderboard();
+
     alert('Game Over! Check the leaderboard.');
 }
+
+let resetBut = document.querySelector('.leaderboard button');
+
+resetBut.addEventListener(('click'), () => {
+    reset()
+})
+function reset () {
+    localStorage.removeItem('leaderboard');
+    updateLeaderboard();
+}
+gameFinish()

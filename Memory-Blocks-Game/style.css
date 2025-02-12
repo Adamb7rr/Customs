@@ -98,7 +98,7 @@ body{
     pointer-events: none;
 }
 
-.board{
+.leaderboard{
     width: 150px;
     position: fixed;
 }
@@ -108,6 +108,9 @@ body{
     justify-content: space-between;
     align-items: center;
 
+}
+#leaderboard-list{
+    
 }
 .board .result .name-board{
     
