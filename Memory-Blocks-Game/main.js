@@ -195,4 +195,5 @@ function startNewGame () {
     blocksContainer.classList.remove('no-clicking');
 }
 document.getElementById('refresh-page').addEventListener('click', startNewGame);
+
 gameFinish()
