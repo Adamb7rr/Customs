@@ -1,18 +1,35 @@
 // splach screen
 document.querySelector('.control-buttons span').onclick = () => {
-    // prompt to enter your name
-    let yourName = prompt("Enter Your Name?")
+    let namePopup = document.getElementById('name-popup');
+    namePopup.style.display = 'block';
 
-    // display your name in game page
-    if (yourName === '' || yourName === null) {
-        document.querySelector('.name span').innerHTML = `Unknown`
-    } else {
-        document.querySelector('.name span').innerHTML = `${yourName}`
-    }
+    // Close the pop-up when the user clicks on the close button
+    document.getElementById('close-name-popup').onclick = function() {
+        namePopup.style.display = 'none';
+    };
 
-    // remove splach screen from page
-    document.querySelector('.control-buttons').remove()
-}
+    // Close the pop-up when the user clicks anywhere outside of the pop-up
+    window.onclick = function(event) {
+        if (event.target == namePopup) {
+            namePopup.style.display = 'none';
+        }
+    };
+
+    // Save the new name and start the game
+    document.getElementById('save-name').onclick = function() {
+        let newName = document.getElementById('new-name').value;
+        if (newName === '' || newName === null) {
+            document.querySelector('.name span').innerHTML = `Unknown`;
+        } else {
+            document.querySelector('.name span').innerHTML = `${newName}`;
+        }
+        namePopup.style.display = 'none';
+
+        // Remove splash screen
+
+    };
+    document.querySelector('.control-buttons').remove();
+};
 
 let duration = 1000
 
@@ -176,24 +193,52 @@ function reset () {
     updateLeaderboard();
 }
 function startNewGame () {
-    // Reset tries
-    document.querySelector('.tries span').innerHTML = '0';
+    // Display the name change pop-up
+    let namePopup = document.getElementById('name-popup');
+    namePopup.style.display = 'block';
 
-    // Reset blocks
-    blocks.forEach(block => {
-        block.classList.remove('is-flipped', 'has-match');
-        block.style.order = '';
-    });
+    // Close the pop-up when the user clicks on the close button
+    document.getElementById('close-name-popup').onclick = function() {
+        namePopup.style.display = 'none';
+    };
 
-    // Shuffle blocks
-    shuffle(orderRange);
-    blocks.forEach((block, index) => {
-        block.style.order = orderRange[index];
-    });
+    // Close the pop-up when the user clicks anywhere outside of the pop-up
+    window.onclick = function(event) {
+        if (event.target == namePopup) {
+            namePopup.style.display = 'none';
+        }
+    };
 
-    // Remove no-clicking class if present
-    blocksContainer.classList.remove('no-clicking');
+    // Save the new name and start a new game
+    document.getElementById('save-name').onclick = function() {
+        let newName = document.getElementById('new-name').value;
+        if (newName === '' || newName === null) {
+            document.querySelector('.name span').innerHTML = `Unknown`;
+        } else {
+            document.querySelector('.name span').innerHTML = `${newName}`;
+        }
+        namePopup.style.display = 'none';
+
+        // Reset tries
+        document.querySelector('.tries span').innerHTML = '0';
+
+        // Reset blocks
+        blocks.forEach(block => {
+            block.classList.remove('is-flipped', 'has-match');
+            block.style.order = '';
+        });
+
+        // Shuffle blocks
+        shuffle(orderRange);
+        blocks.forEach((block, index) => {
+            block.style.order = orderRange[index];
+        });
+
+        // Remove no-clicking class if present
+        blocksContainer.classList.remove('no-clicking');
+    };
 }
+
 document.getElementById('refresh-page').addEventListener('click', startNewGame);
 
 gameFinish()
