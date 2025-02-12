@@ -4,7 +4,7 @@ document.querySelector('.control-buttons span').onclick = () => {
     let yourName = prompt("Enter Your Name?")
 
     // display your name in game page
-    if (yourName === '') {
+    if (yourName === '' || yourName === null) {
         document.querySelector('.name span').innerHTML = `Unknown`
     } else {
         document.querySelector('.name span').innerHTML = `${yourName}`

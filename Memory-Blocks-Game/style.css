@@ -64,7 +64,7 @@ body{
 .memory-game-blocks .game-block.is-flipped,
 .memory-game-blocks .game-block.has-match{
     transform: rotateY(180deg);
-    pointer-events: none;
+    pointer-events: ;
 }
 .memory-game-blocks .game-block .front{
     background-color: #333;
@@ -96,4 +96,23 @@ body{
 
 .no-clicking {
     pointer-events: none;
+}
+
+.board{
+    width: 150px;
+    position: fixed;
+}
+
+.board .result{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.board .result .name-board{
+    
+}
+.board .result .tries-board{
+    position: absolute;
+    right: 10px;
 }
