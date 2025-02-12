@@ -34,6 +34,27 @@ blocks.forEach((block, index) => {
     })
 })
 
+function checkMatchedBlocks (fBlock, sBlock) {
+    let triesElement = document.querySelector('.tries span')
+
+    if (fBlock.dataset.player === sBlock.dataset.player) {
+        fBlock.classList.remove('is-flipped')
+        sBlock.classList.remove('is-flipped')
+
+        fBlock.classList.add('has-match')
+        sBlock.classList.add('has-match')
+    } else {
+        triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1
+
+        setTimeout(() => {
+            fBlock.classList.remove('is-flipped')
+            sBlock.classList.remove('is-flipped')
+        }, duration);
+
+    }
+}
+
+
 function shuffle (array) {
     let current = array.length,
         temp,
@@ -63,6 +84,8 @@ function flipBlock (selectedBlock) {
         console.log('two Flipped')
 
         stopClicking()
+
+        checkMatchedBlocks(allFlippedBlocks[0], allFlippedBlocks[1])
     }
 }
 

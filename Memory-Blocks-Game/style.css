@@ -61,7 +61,8 @@ body{
     flex: 1 0 200px;
     margin: 0 10px 20px;
 }
-.memory-game-blocks .game-block.is-flipped{
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match{
     transform: rotateY(180deg);
 }
 .memory-game-blocks .game-block .front{
