@@ -1,5 +1,7 @@
 // splach screen
 document.querySelector('.control-buttons span').onclick = () => {
+
+
     let namePopup = document.getElementById('name-popup');
     namePopup.style.display = 'block';
 
@@ -15,8 +17,12 @@ document.querySelector('.control-buttons span').onclick = () => {
         }
     };
 
+
+
     // Save the new name and start the game
     document.getElementById('save-name').onclick = function() {
+
+
         let newName = document.getElementById('new-name').value;
         if (newName === '' || newName === null) {
             document.querySelector('.name span').innerHTML = `Unknown`;
@@ -28,8 +34,9 @@ document.querySelector('.control-buttons span').onclick = () => {
         // Remove splash screen
 
     };
-    document.querySelector('.control-buttons').remove();
+
 };
+document.querySelector('.control-buttons').remove();
 
 let duration = 1000
 
@@ -56,6 +63,33 @@ blocks.forEach((block, index) => {
 
 })
 
+let currentPlayer = 1;
+let player1Score = 0;
+let player2Score = 0;
+let player1Name = 'Player 1';
+let player2Name = 'Player 2';
+let player1Color = '#4CAF50';
+let player2Color = '#F44336';
+
+function updateScores () {
+    document.querySelector('.player1-score span').innerHTML = player1Score;
+    document.querySelector('.player2-score span').innerHTML = player2Score;
+}
+
+function updateCurrentPlayer () {
+    const currentPlayerName = currentPlayer === 1 ? player1Name : player2Name;
+    const currentPlayerColor = currentPlayer === 1 ? player1Color : player2Color;
+    document.querySelector('.current-player span').innerHTML = `Player ${currentPlayer}`;
+    document.getElementById('current-player-name').innerHTML = currentPlayerName;
+    document.querySelector('.info-container').style.backgroundColor = currentPlayerColor;
+    const scoreboard = document.querySelector('.scoreboard');
+    if (currentPlayer === 2) {
+        scoreboard.classList.add('player2');
+    } else {
+        scoreboard.classList.remove('player2');
+    }
+}
+
 function checkMatchedBlocks (fBlock, sBlock) {
     let triesElement = document.querySelector('.tries span')
     let triesBoard = document.querySelector('.tries-board span')
@@ -69,6 +103,13 @@ function checkMatchedBlocks (fBlock, sBlock) {
 
         fBlock.classList.add('has-match')
         sBlock.classList.add('has-match')
+
+        if (currentPlayer === 1) {
+            player1Score++;
+        } else {
+            player2Score++;
+        }
+        updateScores();
 
         let newArr = [];
         blocks.forEach((block) => {
@@ -89,8 +130,10 @@ function checkMatchedBlocks (fBlock, sBlock) {
         triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1
 
         setTimeout(() => {
-            fBlock.classList.remove('is-flipped')
-            sBlock.classList.remove('is-flipped')
+            fBlock.classList.remove('is-flipped');
+            sBlock.classList.remove('is-flipped');
+            currentPlayer = currentPlayer === 1 ? 2 : 1;
+            updateCurrentPlayer();
         }, duration);
 
     }
@@ -183,6 +226,8 @@ function gameFinish () {
     };
 }
 
+
+
 let resetBut = document.querySelector('.leaderboard button');
 
 resetBut.addEventListener(('click'), () => {
@@ -209,14 +254,13 @@ function startNewGame () {
         }
     };
 
-    // Save the new name and start a new game
-    document.getElementById('save-name').onclick = function() {
-        let newName = document.getElementById('new-name').value;
-        if (newName === '' || newName === null) {
-            document.querySelector('.name span').innerHTML = `Unknown`;
-        } else {
-            document.querySelector('.name span').innerHTML = `${newName}`;
-        }
+    // Save the new names and colors, and start a new game
+    document.getElementById('save-names').onclick = function() {
+        player1Name = document.getElementById('player1-name').value || 'Player 1';
+        player2Name = document.getElementById('player2-name').value || 'Player 2';
+        player1Color = document.getElementById('player1-color').value || '#4CAF50';
+        player2Color = document.getElementById('player2-color').value || '#F44336';
+
         namePopup.style.display = 'none';
 
         // Reset tries
@@ -236,7 +280,17 @@ function startNewGame () {
 
         // Remove no-clicking class if present
         blocksContainer.classList.remove('no-clicking');
+
+        // Reset scores and current player
+        currentPlayer = 1;
+        player1Score = 0;
+        player2Score = 0;
+        updateScores();
+        updateCurrentPlayer();
     };
 }
 
 document.getElementById('refresh-page').addEventListener('click', startNewGame);
+
+updateScores();
+updateCurrentPlayer();

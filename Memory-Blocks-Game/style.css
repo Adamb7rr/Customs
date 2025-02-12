@@ -4,6 +4,47 @@
 body{
     font-family: Arial, Tahoma, sans-serif;
     background-color: #240046;
+    position: relative;
+}
+
+.scoreboard {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    margin-left: 50px;
+    margin-top: 70px;
+    background-color: #3c096c;
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    color: #FFF;
+}
+
+.scoreboard h2 {
+    margin: 0 0 10px;
+    color: #4CAF50;
+}
+
+.scoreboard div {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #e0aaff;
+}
+
+.scoreboard span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+.scoreboard.player2 {
+    border-color: #F44336;
+}
+
+.scoreboard.player2 h2,
+.scoreboard.player2 span {
+    color: #F44336;
 }
 .control-buttons{
     position: fixed;
@@ -31,7 +72,7 @@ body{
 .info-container {
     width: 1080px;
     margin: 20px auto 0;
-    color: #e0aaff;
+    color: #FFF;
     background-color: #5a189a;
     padding: 20px;
     font-size: 24px;
@@ -39,6 +80,7 @@ body{
     border: 1px solid #10002b;
     border-radius: 10px;
     font-weight: bold;
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
 .info-container .name {
     float: left;
@@ -172,78 +214,92 @@ button {
 .popup {
     display: none;
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .popup-content {
-    background-color: #c77dff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #e0aaff;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
+    background-color: #fff;
+    padding: 30px;
     border-radius: 10px;
-    color: #5a189a;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    animation: popup-show 0.3s ease-out;
 }
 
-#close-popup {
-    color: #10002b;
-    float: right;
-    font-size: 28px;
+@keyframes popup-show {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 10px;
     font-weight: bold;
+    color: #555;
 }
 
-#close-popup:hover,
-#close-popup:focus {
-    color: black;
-    text-decoration: none;
+.popup-content input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.popup-content input[type="color"]{
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
     cursor: pointer;
+    
 }
 
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+.popup-content button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.popup-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    border-radius: 10px;
+.popup-content button:hover {
+    background-color: #45a049;
 }
 
 #close-name-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
     color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    transition: color 0.3s;
 }
 
-#close-name-popup:hover,
-#close-name-popup:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+#close-name-popup:hover {
+    color: #333;
 }
 
 #new-name {
@@ -262,33 +318,4 @@ button {
     background-color: #2396f3;
     cursor: pointer;
     border-radius: 6px;
-}
-
-.game-level {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #f9f9f9;
-    border: 2px solid #2396f3;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.game-level h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2396f3;
-}
-
-.game-level button {
-    padding: 10px;
-    border: none;
-    outline: none;
-    color: #FFF;
-    background-color: #2396f3;
-    cursor: pointer;
-    border-radius: 6px;
-    margin: 5px;
-    width: 100px;
 }

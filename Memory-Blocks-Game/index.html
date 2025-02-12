@@ -12,6 +12,11 @@
         <span>Start Game</span>
     </div>
 
+    <div class="scoreboard">
+        <div class="player1-score">Player 1 Score: <span>0</span></div>
+        <div class="player2-score">Player 2 Score: <span>0</span></div>
+        <div class="current-player">Current Player: <span>Player 1</span></div>
+    </div>
     <div id="win-popup" class="popup">
         <div class="popup-content">
             <span id="close-popup">&times;</span>
@@ -20,11 +25,22 @@
         </div>
     </div>
     <div id="name-popup" class="popup">
-        <div class="popup-content">
-            <span id="close-name-popup">&times;</span>
-            <h2>Enter Your Name</h2>
-            <input type="text" id="new-name" placeholder="Your Name">
-            <button id="save-name">Save</button>
+    <div class="popup-content">
+        <span id="close-name-popup">&times;</span>
+        <h2>Enter Player Names and Colors</h2>
+        <div>
+            <label for="player1-name">Player 1 Name:</label>
+            <input type="text" id="player1-name" placeholder="Player 1 Name">
+            <label for="player1-color">Color</label>
+            <input type="color" id="player1-color" value="#4CAF50">
+        </div>
+        <div>
+            <label for="player2-name">Player 2 Name:</label>
+            <input type="text" id="player2-name" placeholder="Player 2 Name">
+            <label for="player2-color">Color</label>
+            <input type="color" id="player2-color" value="#F44336">
+        </div>
+            <button id="save-names">Save</button>
         </div>
     </div>
 
@@ -38,7 +54,7 @@
     <!-- container contains information (name, tries) -->
     <div class="info-container">
         <div class="name">
-            Hello: <span></span>
+            Current Player: <span id="current-player-name"></span>
         </div>
         <div class="tries">
             Wrong Tries: <span>0</span>
