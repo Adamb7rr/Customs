@@ -18,6 +18,10 @@ let duration = 1000
 
 let blocksContainer = document.querySelector('.memory-game-blocks')
 
+let win = document.querySelector('.win')
+
+let lose = document.querySelector('.lose')
+
 let blocks = Array.from(blocksContainer.children)
 
 let orderRange = Array.from(Array(blocks.length).keys())
@@ -37,13 +41,22 @@ blocks.forEach((block, index) => {
 function checkMatchedBlocks (fBlock, sBlock) {
     let triesElement = document.querySelector('.tries span')
 
+
+
     if (fBlock.dataset.player === sBlock.dataset.player) {
+
+        win.play()
+
         fBlock.classList.remove('is-flipped')
         sBlock.classList.remove('is-flipped')
 
         fBlock.classList.add('has-match')
         sBlock.classList.add('has-match')
+
     } else {
+
+        lose.play()
+
         triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1
 
         setTimeout(() => {
