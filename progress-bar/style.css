@@ -4,8 +4,31 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #3939398a;
 }
 
 .container {
-    
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+.container div {
+    border-radius: 50%;
+    border: 3px solid #eee;
+    padding: 5px 10px;
+    position: relative;
+    color: #eee;
+}
+.container div::after {
+    content: '';
+    position: absolute;
+    width: 58px;
+    height: 3px;
+    background-color: #eee;
+    top: 12px;
+    left: 29px
+}
+.container div:nth-last-child(1)::after{
+    display: none;
 }
