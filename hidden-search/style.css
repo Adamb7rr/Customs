@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    background-color: #3a5a40;
+}
+
+div{
+    background-color: #FFF;
+    padding: 10px;
+    cursor: pointer;
+}
